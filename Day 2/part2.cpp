@@ -13,11 +13,8 @@ std::string game;
 int sum_games_power=0;
 
 while(std::getline(games,game)){
-
     current_game=getmax_game(game);
     sum_games_power+=current_game[0]*current_game[1]*current_game[2];
-   
-
 }
 
 std::cout<<sum_games_power<<"\n";
