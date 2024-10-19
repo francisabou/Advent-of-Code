@@ -2,30 +2,6 @@
 #include <iostream>
 #include <fstream>
 
-//Classes Declaration
-class Line;
-
-//Functions Declaration
-bool Testfile(std::ifstream &file);
-
-int main(){
-
-    std::ifstream file("part2.txt");
-
-    //Exit program when file was not found
-    if (Testfile(file)){
-        return 1;
-    };
-    
-
-
-
-
-
-    file.close();
-    return 0;
-}
-
 //Classes
 class Line {
     private:
@@ -64,7 +40,43 @@ class Line {
         first_digit=findf_digit();
         last_digit=findl_digit();
     };
+    Line(){
+        line=" ";
+        first_digit=0;
+        last_digit=0;
+    };
 };
+
+//Functions Declaration
+bool Testfile(std::ifstream &file);
+
+int main(){
+
+    std::ifstream file("part1.txt");
+    std::string temp;
+    int total=0;
+
+    //Exit program when file was not found
+    if (Testfile(file)){
+        return 1;
+    };
+    
+    while(!file.eof()){
+        std::getline(file,temp);
+        if(temp.empty()){
+            continue;
+        };
+        Line line(temp);
+        total+=line.f_dig()*10+line.l_dig();
+    };
+
+    std::cout << "\n" << "************************************************************" << "\n" << "\n";
+    std::cout << total << "\n";
+    std::cout << "\n" << "************************************************************" << "\n" << "\n";
+
+    file.close();
+    return 0;
+}
 
 //functions
 bool Testfile(std::ifstream &file){
