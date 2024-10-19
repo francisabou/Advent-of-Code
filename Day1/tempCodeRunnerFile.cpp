@@ -1,1 +1,1 @@
-            int i=line.length()-1;
+f_digit
