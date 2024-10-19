@@ -20,14 +20,14 @@ class Line {
         //Setters
         int findf_digit(){
             int i=0;
-            while((line.at(i)<48)&&(line.at(i)>57)){
+            while((line.at(i)<48)||(line.at(i)>57)){
                 i++;
             };
             return line.at(i)-48;
         }
         int findl_digit(){
             int i=line.length();
-            while((line.at(i)<48)&&(line.at(i)>57)){
+            while((line.at(i)<48)||(line.at(i)>57)){
                 i--;
             };
             return line.at(i)-48;
