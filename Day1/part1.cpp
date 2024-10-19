@@ -2,11 +2,36 @@
 #include <iostream>
 #include <fstream>
 
+//Classes Declaration
+class Line;
+
+//Functions Declaration
+bool Testfile(std::ifstream &file);
+
+int main(){
+
+    std::ifstream file("part2.txt");
+
+    //Exit program when file was not found
+    if (Testfile(file)){
+        return 1;
+    };
+    
+
+
+
+
+
+    file.close();
+    return 0;
+}
+
+//Classes
 class Line {
     private:
-        std::string line = " ";
-        int first_digit = 0;
-        int last_digit = 0;
+        std::string line;
+        int first_digit;
+        int last_digit;
     public:
         //Getters
         std::string sline(){
@@ -41,9 +66,14 @@ class Line {
     };
 };
 
-int main(){
-
- Line line1("treb7uchet");
-
-return 0;
+//functions
+bool Testfile(std::ifstream &file){
+    if (!file.is_open()){
+        std::cout << "\n" << "************************************************************" << "\n" << "\n";
+        std::cout << "File not found" << "\n";
+        std::cout << "\n" << "************************************************************" << "\n" << "\n";
+        return 1;
+    };
+    return 0;
 }
+
