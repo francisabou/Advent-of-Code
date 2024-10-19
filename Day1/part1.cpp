@@ -1,5 +1,6 @@
 
 #include <iostream>
+#include <fstream>
 
 class Line {
     private:
@@ -14,7 +15,7 @@ class Line {
         int f_dig(){
             return first_digit;
         };
-        int l_digit(){
+        int l_dig(){
             return last_digit;
         };
         //Setters
@@ -26,7 +27,7 @@ class Line {
             return line.at(i)-48;
         }
         int findl_digit(){
-            int i=line.length();
+            int i=line.length()-1;
             while((line.at(i)<48)||(line.at(i)>57)){
                 i--;
             };
@@ -42,11 +43,7 @@ class Line {
 
 int main(){
 
- Line line1("1abc2");
-
-std::cout << line1.sline() << "\n";
-std::cout << line1.f_dig() << "\n";
-std::cout << line1.f_dig() << "\n";
+ Line line1("treb7uchet");
 
 return 0;
 }

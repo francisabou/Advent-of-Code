@@ -1,0 +1,5 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     '/Users/francisabou/Desktop/Github/Advent-of-Code/Day1/part1'
+relocations:     []
+...
