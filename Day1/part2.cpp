@@ -10,7 +10,7 @@ class Code {
         //methods
         
         int findf_digit(){
-            int i[] = {std::string::npos,-1}; 
+            int i[] = {-1,-1}; 
             int j[]= {0,-1}; 
             int k = 0;          
             int found;
@@ -18,18 +18,18 @@ class Code {
             for(const std::string &num : nums){
                 k++;
                 found=line.find(num);
-                if(found!=std::string::npos&&found<i[1]){
-                    i[1]=found;
-                    i[2]=k;
+                if(i[0]==-1||found!=std::string::npos&&found<i[0]){
+                    i[0]=found;
+                    i[1]=k;
                 }
             }
-            while(j[1]<line.size()&&line.at(j[1])<48&&line.at(j[1])>57){
-                j[1]++;
+            while(j[0]<line.size()&&line.at(j[0])<48&&line.at(j[0])>57){
+                j[0]++;
             }
-            return (i[1]<j[1])? i[2] : line.at(j[1])-48 ; 
+            return (i[0]<j[0])? i[1] : line.at(j[0])-48 ; 
         }
         int findl_digit(){
-            int i[] = {std::string::npos,-1}; 
+            int i[] = {-1,-1}; 
             int j[]= {line.size()-1,-1};
             int k=10;
             int found;
@@ -37,15 +37,15 @@ class Code {
             for(const std::string &num : nums){
                 k--;
                 found=line.rfind(num);
-                if(found!=std::string::npos&&found>i[1]){
-                    i[1]=found;
-                    i[2]=k;
+                if(i[0]==-1||found!=std::string::npos&&found>i[0]){
+                    i[0]=found;
+                    i[1]=k;
                 }
             }
-            while(j[1]>-1&&line.at(j[1])<48&&line.at(j[1])>57){
-                j[1]--;
+            while(j[0]>-1&&line.at(j[0])<48&&line.at(j[0])>57){
+                j[0]--;
             }
-            return (i[1]<j[1])?  line.at(j[1])-48 : i[2] ; 
+            return (i[0]<j[0])?  line.at(j[0])-48 : i[1] ; 
         }
     public:
         //Getters
